@@ -28,6 +28,11 @@ public class TaskService {
         t.setCompleted(true);
         return repo.save(t);
     }
+     public Task delete(Long id) {
+            Task t= repo.findById(id).orElse(null);
+            repo.delete(t);
+            return t;
+        }
 
     public Task findById(Long id) {
         return repo.findById(id).orElse(null);
